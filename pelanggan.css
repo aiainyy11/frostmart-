@@ -1,0 +1,437 @@
+/* ============================================
+   ANIMASI FADE-IN SAAT HALAMAN DIBUKA
+   ============================================ */
+body {
+  opacity: 0;
+  animation: fadeInPage 0.35s ease forwards;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+:root {
+  --ice-deep: #0b2540;
+  --ice-panel: #10304f;
+  --frost: #eaf4fb;
+  --frost-dim: #9fb8cc;
+  --accent: #4fc3e8;
+  --accent-warm: #ffb454;
+  --success: #4fd68c;
+  --line: rgba(234, 244, 251, 0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--ice-deep);
+  color: var(--frost);
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ============ NAVBAR ============ */
+.navbar {
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand { font-size: 19px; font-weight: 700; flex-shrink: 0; }
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  max-width: 420px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 9px 14px;
+  color: var(--frost);
+  outline: none;
+  font-size: 13.5px;
+}
+
+.search-bar button {
+  border: none;
+  background: transparent;
+  padding: 0 14px;
+  cursor: pointer;
+  color: var(--frost-dim);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.nav-link { font-size: 13.5px; color: var(--frost-dim); }
+.nav-link:hover { color: var(--frost); }
+
+.cart-icon { position: relative; font-size: 18px; }
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--accent-warm);
+  color: #04172c;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 10px;
+}
+
+/* ============ NOTIFIKASI (BELL & INBOX) ============ */
+.notif-wrap { position: relative; }
+
+.icon-btn {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--frost);
+  padding: 4px;
+}
+
+.notif-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff5470;
+  border: 2px solid var(--ice-deep);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: -10px;
+  width: 300px;
+  max-height: 360px;
+  overflow-y: auto;
+  background: var(--ice-panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  z-index: 60;
+}
+.dropdown-menu.show { display: block; }
+
+.dropdown-title {
+  padding: 14px 16px;
+  font-weight: 700;
+  font-size: 13.5px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dropdown-item {
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.dropdown-item:last-child { border-bottom: none; }
+
+.dropdown-icon { font-size: 18px; flex-shrink: 0; }
+
+.dropdown-item-title { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.dropdown-item-sub { font-size: 11.5px; color: var(--frost-dim); line-height: 1.4; }
+
+.dropdown-kosong {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--frost-dim);
+}
+
+.item-belum-dibaca {
+  background: rgba(79,195,232,0.06);
+}
+
+.btn-outline, .btn-solid {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.btn-outline { border: 1px solid var(--line); color: var(--frost); }
+.btn-solid { background: linear-gradient(120deg, var(--accent), #2f9fd6); color: #04172c; }
+
+/* ============ CAROUSEL ============ */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 24px auto;
+  border-radius: 16px;
+}
+
+.carousel-track { display: flex; transition: transform 0.6s ease; }
+.carousel-slide { min-width: 100%; height: 260px; display: flex; align-items: center; padding: 0 50px; }
+.slide-1 { background: linear-gradient(120deg, #123a63, #0b2540); }
+.slide-2 { background: linear-gradient(120deg, #0e3352, #071a30); }
+.slide-3 { background: linear-gradient(120deg, #164569, #0b2540); }
+.slide-content { max-width: 480px; }
+
+.slide-tag {
+  display: inline-block;
+  background: rgba(79,195,232,0.15);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.slide-content h1 { font-size: 28px; margin-bottom: 10px; line-height: 1.3; }
+.slide-content p { color: var(--frost-dim); font-size: 14px; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; }
+.dot.active { background: var(--accent); }
+
+/* ============ VOUCHER SECTION (ala TikTok Shop) ============ */
+.voucher-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 30px;
+}
+
+.voucher-section h2 { font-size: 18px; margin-bottom: 14px; }
+
+.voucher-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.voucher-card {
+  flex-shrink: 0;
+  width: 300px;
+  display: flex;
+  background: linear-gradient(135deg, #ff7a4d, #ff5470);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.voucher-left {
+  width: 90px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-right: 2px dashed rgba(255,255,255,0.5);
+  position: relative;
+}
+
+/* efek "lubang tiket" di garis putus-putus */
+.voucher-left::before,
+.voucher-left::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--ice-deep);
+  border-radius: 50%;
+  right: -7px;
+}
+.voucher-left::before { top: -7px; }
+.voucher-left::after { bottom: -7px; }
+
+.voucher-nilai { font-size: 20px; font-weight: 800; line-height: 1; }
+.voucher-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; margin-top: 2px; }
+
+.voucher-right {
+  flex: 1;
+  padding: 12px 14px;
+  color: white;
+}
+
+.voucher-syarat { font-size: 11px; opacity: 0.9; margin-bottom: 8px; }
+
+.voucher-kode-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 4px 6px 4px 10px;
+  margin-bottom: 8px;
+}
+
+.voucher-kode {
+  flex: 1;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.voucher-copy {
+  background: white;
+  color: #ff5470;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.voucher-copy:hover { background: #ffe8e8; }
+
+.voucher-expired { font-size: 10.5px; opacity: 0.85; }
+
+/* ============ MENU TERLARIS ============ */
+.terlaris-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 30px;
+}
+
+.terlaris-section h2 { font-size: 19px; margin-bottom: 16px; }
+
+.badge-terlaris { background: rgba(255,180,84,0.9); color: #04172c; }
+
+/* ============ FILTER KATEGORI ============ */
+.kategori-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 24px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.kategori-chip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--frost-dim);
+}
+.kategori-chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #04172c;
+  font-weight: 600;
+}
+
+/* ============ GRID PRODUK ============ */
+.produk-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.hasil-cari { color: var(--frost-dim); font-size: 13.5px; margin-bottom: 16px; }
+
+.produk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.kosong { grid-column: 1 / -1; text-align: center; color: var(--frost-dim); padding: 40px 0; }
+
+.produk-card {
+  background: var(--ice-panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.produk-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+.produk-img { position: relative; height: 150px; background: rgba(255,255,255,0.03); }
+.produk-img img { width: 100%; height: 100%; object-fit: cover; }
+.no-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 40px; opacity: 0.3; }
+
+.produk-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+.badge-fresh { background: rgba(79,214,140,0.85); color: #04172c; }
+.badge-warning { background: rgba(255,180,84,0.9); color: #04172c; }
+.badge-habis { background: rgba(255,107,107,0.9); color: #04172c; top: auto; bottom: 10px; }
+
+.produk-info { padding: 14px 16px; }
+.produk-kategori { font-size: 11px; color: var(--frost-dim); text-transform: uppercase; letter-spacing: 0.3px; }
+.produk-info h3 { font-size: 14.5px; margin: 6px 0 8px; line-height: 1.3; }
+.produk-harga { font-size: 15px; font-weight: 700; color: var(--accent); }
+
+/* ============ PANDUAN PENYIMPANAN ============ */
+.panduan-section { max-width: 1200px; margin: 0 auto; padding: 20px 24px 50px; }
+.panduan-section h2 { font-size: 20px; margin-bottom: 20px; }
+
+.panduan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.panduan-card { background: var(--ice-panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+.panduan-icon { font-size: 26px; }
+.panduan-card h4 { font-size: 14.5px; margin: 10px 0 6px; }
+.panduan-card p { font-size: 13px; color: var(--frost-dim); line-height: 1.6; }
+
+/* ============ FOOTER ============ */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--frost-dim);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 720px) {
+  .navbar-inner { flex-wrap: wrap; }
+  .search-bar { order: 3; max-width: 100%; }
+  .carousel-slide { padding: 0 24px; height: 220px; }
+  .slide-content h1 { font-size: 22px; }
+  .voucher-card { width: 260px; }
+}

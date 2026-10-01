@@ -1,0 +1,171 @@
+.keranjang-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 24px 60px;
+}
+
+.keranjang-wrap h1 { font-size: 22px; margin-bottom: 24px; }
+
+.back-link {
+  display: inline-block;
+  color: var(--frost-dim);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.back-link:hover { color: var(--accent); }
+
+.keranjang-kosong { text-align: center; padding: 60px 0; color: var(--frost-dim); }
+.keranjang-kosong p { margin-bottom: 16px; }
+
+.keranjang-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+.pilih-semua {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--frost-dim);
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.keranjang-items { display: flex; flex-direction: column; gap: 12px; }
+
+.item-card {
+  background: var(--ice-panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 20px 60px 1fr 100px 110px 32px;
+  align-items: center;
+  gap: 14px;
+}
+
+.item-checkbox { width: 16px; height: 16px; cursor: pointer; }
+
+.item-img { width: 60px; height: 60px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.03); }
+.item-img img { width: 100%; height: 100%; object-fit: cover; }
+.no-img { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:22px; opacity:0.3; }
+
+.item-info h3 { font-size: 14px; margin-bottom: 4px; }
+.item-harga { font-size: 12px; color: var(--frost-dim); }
+
+.item-qty input {
+  width: 100%;
+  padding: 7px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.03);
+  color: var(--frost);
+  text-align: center;
+  font-size: 13px;
+}
+
+.item-subtotal { font-size: 14px; font-weight: 700; color: var(--accent); text-align: right; }
+
+.item-hapus { font-size: 16px; text-align: center; opacity: 0.6; cursor: pointer; }
+.item-hapus:hover { opacity: 1; }
+
+/* RINGKASAN */
+.ringkasan-box {
+  background: var(--ice-panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  position: sticky;
+  top: 90px;
+}
+
+.ringkasan-box h2 { font-size: 16px; margin-bottom: 16px; }
+
+.pesan-pilih {
+  font-size: 13px;
+  color: var(--frost-dim);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.ringkasan-box .field { margin-bottom: 14px; display: flex; flex-direction: column; gap: 6px; }
+.ringkasan-box label { font-size: 12px; color: var(--frost-dim); font-weight: 600; }
+.ringkasan-box input, .ringkasan-box select {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.03);
+  color: var(--frost);
+  font-size: 13px;
+  font-family: inherit;
+}
+.ringkasan-box select option { background: var(--ice-deep); }
+
+.baris-ringkasan {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--frost-dim);
+  margin-bottom: 8px;
+}
+
+.baris-total {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--frost);
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin-top: 6px;
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* ============ VOUCHER PICKER (checkout) ============ */
+.voucher-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.voucher-chip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1.5px dashed rgba(255,122,77,0.5);
+  background: rgba(255,122,77,0.08);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.voucher-chip:hover { background: rgba(255,122,77,0.15); }
+
+.voucher-chip.dipilih {
+  border-style: solid;
+  border-color: #ff7a4d;
+  background: rgba(255,122,77,0.2);
+}
+
+.chip-nilai { font-size: 13px; font-weight: 700; color: #ff7a4d; }
+.chip-kode { font-family: monospace; font-size: 12.5px; color: var(--frost-dim); }
+
+@media (max-width: 720px) {
+  .keranjang-grid { grid-template-columns: 1fr; }
+  .item-card { grid-template-columns: 16px 50px 1fr 70px; }
+  .item-subtotal, .item-hapus { display: none; }
+}

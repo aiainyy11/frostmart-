@@ -1,0 +1,174 @@
+.profile-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 24px 60px;
+}
+
+.profile-wrap h1 { font-size: 22px; margin-bottom: 20px; }
+
+.panel {
+  background: var(--ice-panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 26px;
+  margin-bottom: 24px;
+}
+
+.panel h2 { font-size: 17px; margin-bottom: 16px; }
+
+.alert-sukses {
+  background: rgba(80,220,150,0.12);
+  border: 1px solid rgba(80,220,150,0.4);
+  color: #a6f0c8;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+.alert-error {
+  background: rgba(255,80,80,0.12);
+  border: 1px solid rgba(255,80,80,0.4);
+  color: #ffb4b4;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+/* PROFIL HEADER */
+.profil-header { display: flex; align-items: center; gap: 20px; }
+
+.avatar {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  background: #2a4664;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.avatar-default { width: 44px; height: 44px; color: #6f92b3; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.profil-info { flex: 1; }
+.profil-info h2 { font-size: 18px; margin-bottom: 4px; }
+
+.role-badge {
+  display: inline-block;
+  background: rgba(79,195,232,0.15);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.info-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13.5px;
+  color: var(--frost-dim);
+}
+.info-rows strong { color: var(--frost); }
+
+.ganti-password-link {
+  display: inline-block;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--accent);
+  text-decoration: underline;
+  font-size: 13.5px;
+}
+
+/* FORM */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field-full { grid-column: 1 / -1; }
+.field label { font-size: 12.5px; color: var(--frost-dim); font-weight: 600; }
+.field input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.03);
+  color: var(--frost);
+  font-size: 14px;
+  font-family: inherit;
+}
+.form-actions { display: flex; gap: 10px; }
+
+/* RIWAYAT TRANSAKSI */
+.kosong-riwayat { color: var(--frost-dim); font-size: 13.5px; }
+.kosong-riwayat a { color: var(--accent); }
+
+.riwayat-list { display: flex; flex-direction: column; gap: 10px; }
+
+.riwayat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.riwayat-info { display: flex; align-items: center; gap: 12px; font-size: 13.5px; }
+.riwayat-tanggal { color: var(--frost-dim); font-size: 12.5px; }
+
+.riwayat-total { font-weight: 700; color: var(--accent); font-size: 14px; }
+
+.badge-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.status-pending { background: rgba(255,180,84,0.15); color: var(--accent-warm); }
+.status-diproses { background: rgba(79,195,232,0.15); color: var(--accent); }
+.status-dikirim { background: rgba(79,195,232,0.15); color: var(--accent); }
+.status-selesai { background: rgba(79,214,140,0.15); color: var(--success); }
+
+@media (max-width: 600px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .riwayat-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+/* TOMBOL FORM */
+.btn-solid {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #04172c;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-solid:hover {
+    opacity: 0.85;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 11px 20px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: transparent !important;
+    color: var(--frost) !important;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: var(--accent) !important;
+}
